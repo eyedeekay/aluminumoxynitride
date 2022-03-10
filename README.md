@@ -13,3 +13,5 @@ which prevents it from interfering with other ways you browse.
 
 It is not actually a Chromium fork. It's just a wrapper around Chromium, in the
 same way that `i2p.firefox` is a wrapper around Firefox.
+
+Works pretty much anyplace you can shoehorn a Chromium somewhere on the `$PATH`.
