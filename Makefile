@@ -57,4 +57,4 @@ upload-all:
 	GOOS=netbsd GOARCH=arm64 make upload
 
 upload:
-	gothub upload -u eyedeekay -r $(APP) -t $(VERSION) -n $(APP)-$(GOOS)-$(GOARCH) -f $(APP)-$(GOOS)-$(GOARCH)
+	gothub upload -R -u eyedeekay -r $(APP) -t $(VERSION) -n $(APP)-$(GOOS)-$(GOARCH) -f $(APP)-$(GOOS)-$(GOARCH)
