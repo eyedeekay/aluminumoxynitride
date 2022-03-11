@@ -14,7 +14,7 @@ import (
 )
 
 var EXTENSIONS = []string{"i2pchrome.js"}
-var EXTENSIONHASHES = []string{"359023d7c0e3eff50797c39942b27d088bd6db70740374dc3cf547fa540328f4"}
+var EXTENSIONHASHES = []string{"60ca1a760703fb3ba6aceaa2fe146cb4e915b0c22f04469a6d86404f4dbafdb0"}
 var ARGS = []string{
 	"--safebrowsing-disable-download-protection",
 	"--disable-client-side-phishing-detection",
