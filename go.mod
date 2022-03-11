@@ -3,15 +3,14 @@ module github.com/eyedeekay/aluminumoxynitride
 go 1.17
 
 require (
-	github.com/eyedeekay/go-ccw v0.0.0-20200403222455-d0e01222fd2a
-	github.com/zserge/lorca v0.1.10
+	github.com/eyedeekay/go-ccw v0.0.0-20220311054642-0a5ebe92ff6b
+	github.com/mediabuyerbot/go-crx3 v1.3.1
 )
 
 require (
 	github.com/golang/protobuf v1.3.4 // indirect
-	github.com/mediabuyerbot/go-crx3 v1.3.1 // indirect
 	github.com/sger/go-hashdir v0.0.1 // indirect
-	github.com/stretchr/testify v1.7.0 // indirect
+	github.com/zserge/lorca v0.1.10 // indirect
 	golang.org/x/net v0.0.0-20200222125558-5a598a2470a0 // indirect
 )
 

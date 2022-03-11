@@ -22,18 +22,18 @@ import (
 var extensionContent embed.FS
 
 var EXTENSIONS = []string{
-	"i2pchrome.js",
 	"localcdn",
 	"onionbrowse",
 	"scriptsafe",
 	"ublockorigin",
+	"i2pchrome.js",
 }
 var EXTENSIONHASHES = []string{
+	"b9f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8",
+	"b9f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8",
+	"b9f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8",
+	"b9f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8",
 	"60ca1a760703fb3ba6aceaa2fe146cb4e915b0c22f04469a6d86404f4dbafdb0",
-	"b9f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8",
-	"b9f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8",
-	"b9f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8",
-	"b9f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8",
 }
 
 func extensionPaths(outpath string) []string {

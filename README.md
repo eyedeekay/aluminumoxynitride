@@ -5,6 +5,9 @@ A Chrome-Wrapping configuration tool for browsing I2P. The very simplest way to
 configure Chromium-based browsers to visit I2P sites, without interfering with
 your main browser configuration.
 
+This is **NOT FINISHED** software, but it is usable and probably pretty good at
+what it's supposed to do.
+
 It works by using the excellent [Lorca](https://github.com/zserge/lorca) library
 created the same people who made the Webview bindings for Go as a means to wrap
 several variants of the Chrome browser in order to configure them to work with

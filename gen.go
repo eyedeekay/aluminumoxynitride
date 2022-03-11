@@ -8,7 +8,7 @@ package main
 import (
 	crx3 "github.com/mediabuyerbot/go-crx3"
 	"log"
-	"os"
+	//	"os"
 	"strings"
 )
 
@@ -39,14 +39,14 @@ func DownloadAndUnpackAndMoveExtension(extensionID, filepath, outdir string) err
 		return nil
 	}
 	// check if the directory exists
-	if _, err := os.Stat(outdir); err == nil {
+	/*if _, err := os.Stat(outdir); err == nil {
 		// if it does, delete it
 		os.RemoveAll(outdir)
 	}
 	// if it doesn't, copy the contents of the zip to the directory
 	if err := os.Rename(path, outdir); err != nil {
 		return err
-	}
+	}*/
 	return nil
 }
 
