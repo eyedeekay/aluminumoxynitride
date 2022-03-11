@@ -28,12 +28,13 @@ var EXTENSIONS = []string{
 	"ublockorigin",
 	"i2pchrome.js",
 }
+
 var EXTENSIONHASHES = []string{
-	"b9f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8",
-	"b9f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8",
-	"b9f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8",
-	"b9f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8",
-	"60ca1a760703fb3ba6aceaa2fe146cb4e915b0c22f04469a6d86404f4dbafdb0",
+	"a0ea5acc47bdfdf360f3e3ab2467b26ac84b2886f80aa92e0105bd79b17c1241",
+	"8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85",
+	"a674a9c883773a181bf2fb5340d014713044070e53d7b9c3789c0295b0b53fc6",
+	"8d7ace5c493193c15286690189f81eb72dc50223f5ed185f43975f8c5cc10cf1",
+	"986330c6ccc668102d7b187c808440557940316ee23a5b8b0ba2da1a6eb730a4",
 }
 
 func extensionPaths(outpath string) []string {
@@ -46,6 +47,7 @@ func extensionPaths(outpath string) []string {
 
 func WriteOutExtensions(outdir string) error {
 	// Walk the contents of extensionContent and write the files out to disk
+	os.MkdirAll(outdir, 0755)
 	return fs.WalkDir(extensionContent, ".", func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
 			return err
@@ -53,7 +55,7 @@ func WriteOutExtensions(outdir string) error {
 		outpath := filepath.Join(outdir, path)
 		if d.IsDir() {
 			if err := os.MkdirAll(outpath, 0755); err != nil {
-				log.Println(err)
+				//log.Println(err)
 			}
 		}
 		bytes, err := extensionContent.ReadFile(path)
@@ -87,9 +89,9 @@ var ARGS = []string{
 }
 
 func main() {
-	WriteOutExtensions("extensions")
-	//CHROMIUM, ERROR = SecureExtendedChromium("i2pchromium-browser", false, extensionPaths("extensions"), EXTENSIONHASHES, ARGS...)
-	CHROMIUM, ERROR = ExtendedChromium("i2pchromium-browser", false, extensionPaths("extensions"), ARGS...)
+	WriteOutExtensions("i2pchromium-browser")
+	CHROMIUM, ERROR = SecureExtendedChromium("i2pchromium-browser", false, extensionPaths("i2pchromium-browser"), EXTENSIONHASHES, ARGS...)
+	//CHROMIUM, ERROR = ExtendedChromium("i2pchromium-browser", false, extensionPaths("extensions"), ARGS...)
 	if ERROR != nil {
 		log.Fatal(ERROR)
 	}

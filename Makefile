@@ -58,3 +58,7 @@ upload-all:
 
 upload:
 	gothub upload -R -u eyedeekay -r $(APP) -t $(VERSION) -n $(APP)-$(GOOS)-$(GOARCH) -f $(APP)-$(GOOS)-$(GOARCH)
+
+clean:
+	git clean -fd
+	rm -rf basic extensions i2pchrome.js i2pchromium-browser localcdn onionbrowse scriptsafe ublockorigin aluminumoxynitride*

@@ -15,3 +15,4 @@ require (
 )
 
 replace github.com/zserge/lorca => github.com/eyedeekay/lorca v0.1.9-0.20220310212707-675ddc22ef10
+replace github.com/eyedeekay/go-ccw v0.0.0-20220311054642-0a5ebe92ff6b => ../go-ccw 
