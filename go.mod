@@ -8,6 +8,8 @@ require (
 )
 
 require (
+	github.com/golang/protobuf v1.3.4 // indirect
+	github.com/mediabuyerbot/go-crx3 v1.3.1 // indirect
 	github.com/sger/go-hashdir v0.0.1 // indirect
 	github.com/stretchr/testify v1.7.0 // indirect
 	golang.org/x/net v0.0.0-20200222125558-5a598a2470a0 // indirect
