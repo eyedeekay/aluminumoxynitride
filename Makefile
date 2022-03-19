@@ -28,26 +28,38 @@ docker:
 	cp -v $(PWD).docker-build/aluminumoxynitride* $(PWD)
 	sudo chown $(USER):$(USER) $(PWD)/aluminumoxynitride*
 
-all:
+all: linux darwin windows freebsd openbsd netbsd
+
+linux:
 	GOOS=linux GOARCH=amd64 make docker
 	GOOS=linux GOARCH=arm make docker
 	GOOS=linux GOARCH=arm64 make docker
+
+darwin:
 	GOOS=darwin GOARCH=amd64 make build
 	GOOS=darwin GOARCH=arm64 make build
+
+windows:
 	GOOS=windows GOARCH=amd64 make build
 	GOOS=windows GOARCH=386 make build
+
+freebsd:
 	GOOS=freebsd GOARCH=amd64 make build
 	GOOS=freebsd GOARCH=386 make build
 	GOOS=freebsd GOARCH=arm make build
 	GOOS=freebsd GOARCH=arm64 make build
-	GOOS=openbsd GOARCH=amd64 make build
-	GOOS=openbsd GOARCH=386 make build
-	GOOS=openbsd GOARCH=arm make build
-	GOOS=openbsd GOARCH=arm64 make build
-	GOOS=netbsd GOARCH=amd64 make build
-	GOOS=netbsd GOARCH=386 make build
-	GOOS=netbsd GOARCH=arm make build
-	GOOS=netbsd GOARCH=arm64 make build
+
+openbsd:
+	#GOOS=openbsd GOARCH=amd64 make build
+	#GOOS=openbsd GOARCH=386 make build
+	#GOOS=openbsd GOARCH=arm make build
+	#GOOS=openbsd GOARCH=arm64 make build
+
+netbsd:
+	#GOOS=netbsd GOARCH=amd64 make build
+	#GOOS=netbsd GOARCH=386 make build
+	#GOOS=netbsd GOARCH=arm make build
+	#GOOS=netbsd GOARCH=arm64 make build
 
 upload-all:
 	GOOS=linux GOARCH=amd64 make upload
