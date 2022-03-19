@@ -1,5 +1,5 @@
 
-VERSION=0.0.1
+VERSION=0.0.2
 DESC="A wrapper for Chrome-based browsers that auto-configures them to use I2P."
 APP=aluminumoxynitride
 
