@@ -73,6 +73,8 @@ upload-all:
 	GOOS=freebsd GOARCH=386 make upload
 	GOOS=freebsd GOARCH=arm make upload
 	GOOS=freebsd GOARCH=arm64 make upload
+	
+upload-disabled:
 	GOOS=openbsd GOARCH=amd64 make upload
 	GOOS=openbsd GOARCH=386 make upload
 	GOOS=openbsd GOARCH=arm make upload
