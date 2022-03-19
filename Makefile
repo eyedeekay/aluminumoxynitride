@@ -14,6 +14,18 @@ version:
 
 release: all version upload-all
 
+docker:
+	sudo rm -rf $(PWD).docker-build 
+	cp -rv $(PWD) $(PWD).docker-build
+	docker run -it --rm \
+		-w /go/src/github.com/eyedeekay/aluminumoxynitride \
+		-v $(PWD).docker-build:/go/src/github.com/eyedeekay/aluminumoxynitride \
+		-v $(GOPATH)/src/github.com/eyedeekay/go-I2P-jpackage:/go/src/github.com/eyedeekay/go-I2P-jpackage \
+		eyedeekay/i2p.plugins.tor-manager make build
+	#go build
+	cp -v $(PWD).docker-build/aluminumoxynitride* $(PWD)
+	sudo chown $(USER):$(USER) $(PWD)/aluminumoxynitride*
+
 all:
 	GOOS=linux GOARCH=amd64 make build
 	GOOS=linux GOARCH=arm make build
