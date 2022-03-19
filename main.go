@@ -4,6 +4,7 @@ package main
 
 import (
 	"embed"
+	"flag"
 	"io/fs"
 	"io/ioutil"
 	"log"
@@ -74,6 +75,24 @@ var ARGS = []string{
 }
 
 func main() {
+	directory := flag.String("directory", "", "The directory to store aluminumoxynitride data in")
+	flag.Parse()
+	var workdir string
+	var err error
+	if directory != nil && *directory == "" {
+		workdir, err = os.Getwd()
+		if err != nil {
+			log.Fatal(err)
+		}
+	} else {
+		workdir = *directory
+		if err := os.Chdir(workdir); err != nil {
+			log.Fatal(err)
+		}
+	}
+	if err = StartI2P(workdir); err != nil {
+		log.Fatal(err)
+	}
 	WriteOutExtensions("i2pchromium-browser")
 	CHROMIUM, ERROR = SecureExtendedChromium("i2pchromium-browser", false, extensionPaths("i2pchromium-browser"), EXTENSIONHASHES, ARGS...)
 	//CHROMIUM, ERROR = ExtendedChromium("i2pchromium-browser", false, extensionPaths("extensions"), ARGS...)
