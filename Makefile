@@ -18,6 +18,8 @@ docker:
 	sudo rm -rf $(PWD).docker-build 
 	cp -rv $(PWD) $(PWD).docker-build
 	docker run -it --rm \
+		--env GOOS=$(GOOS) \
+		--env GOARCH=$(GOARCH) \
 		-w /go/src/github.com/eyedeekay/aluminumoxynitride \
 		-v $(PWD).docker-build:/go/src/github.com/eyedeekay/aluminumoxynitride \
 		-v $(GOPATH)/src/github.com/eyedeekay/go-I2P-jpackage:/go/src/github.com/eyedeekay/go-I2P-jpackage \
@@ -27,9 +29,9 @@ docker:
 	sudo chown $(USER):$(USER) $(PWD)/aluminumoxynitride*
 
 all:
-	GOOS=linux GOARCH=amd64 make build
-	GOOS=linux GOARCH=arm make build
-	GOOS=linux GOARCH=arm64 make build
+	GOOS=linux GOARCH=amd64 make docker
+	GOOS=linux GOARCH=arm make docker
+	GOOS=linux GOARCH=arm64 make docker
 	GOOS=darwin GOARCH=amd64 make build
 	GOOS=darwin GOARCH=arm64 make build
 	GOOS=windows GOARCH=amd64 make build
