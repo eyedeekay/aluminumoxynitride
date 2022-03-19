@@ -77,6 +77,10 @@ var ARGS = []string{
 func main() {
 	directory := flag.String("directory", "", "The directory to store aluminumoxynitride data in")
 	flag.Parse()
+	profile := filepath.Join(*directory, "profile")
+	os.MkdirAll(profile, 0755)
+	ARGS = append(ARGS, "--user-data-dir="+*directory+"/profile")
+	ARGS = append(ARGS, flag.Args()...)
 	var workdir string
 	var err error
 	if directory != nil && *directory == "" {
