@@ -43,6 +43,7 @@ func StartI2P(directory string) (*I2P.Daemon, error) {
 				log.Println(err)
 				return nil, err
 			}
+			return I2Pdaemon, nil
 		}
 	}
 	return nil, nil
