@@ -8,7 +8,7 @@ package main
 import (
 	crx3 "github.com/mediabuyerbot/go-crx3"
 	"log"
-	//	"os"
+	"os"
 	//hashdir "github.com/sger/go-hashdir"
 	"github.com/eyedeekay/go-ccw"
 	"io/ioutil"
@@ -46,6 +46,24 @@ func DownloadAndUnpackAndMoveExtension(extensionID, filepath, outdir string) err
 		if err != nil {
 			return err
 		}
+		// open extension-hash.go and write hash to it
+		hashfile, err := os.OpenFile("extension-hash.go", os.O_APPEND|os.O_WRONLY, 0600)
+		if err != nil {
+			return err
+		}
+		defer hashfile.Close()
+		if _, err := hashfile.WriteString("\t\"" + hash + "\",\n"); err != nil {
+			return err
+		}
+		zipsfile, err := os.OpenFile("extension-zips.go", os.O_APPEND|os.O_WRONLY, 0600)
+		if err != nil {
+			return err
+		}
+		defer zipsfile.Close()
+		if _, err := zipsfile.WriteString("\t\"" + outdir + "\",\n"); err != nil {
+			return err
+		}
+
 	}
 
 	if outdir == unzpath || outdir == "" {
@@ -66,6 +84,15 @@ func DownloadAndUnpackAndMoveExtension(extensionID, filepath, outdir string) err
 func main() {
 	// You can also run "npm build" or webpack here, or compress assets, or
 	// generate manifests, or do other preparations for your assets.
+	extzips := "package main\n"
+	extzips += "\n"
+	extzips += "var EXTENSIONS = []string{" + "\n"
+	exthash := "package main\n"
+	exthash += "\n"
+	exthash += "var EXTENSIONHASHES = []string{" + "\n"
+	ioutil.WriteFile("extension-zips.go", []byte(extzips), 0644)
+	ioutil.WriteFile("extension-hash.go", []byte(exthash), 0644)
+
 	if err := DownloadAndUnpackAndMoveExtension("njdfdhgcmkocbgbhcioffdbicglldapd", "localcdn.crx", "localcdn"); err != nil {
 		log.Fatal(err)
 	}
@@ -81,7 +108,23 @@ func main() {
 	if err := DownloadAndUnpackAndMoveExtension("ikdjcmomgldfciocnpekfndklkfgglpe", "i2pchrome.js.crx", "i2pchrome.js"); err != nil {
 		log.Fatal(err)
 	}
-
+	// open extension-hash.go and write hash to it
+	hashfile, err := os.OpenFile("extension-hash.go", os.O_APPEND|os.O_WRONLY, 0600)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer hashfile.Close()
+	if _, err := hashfile.WriteString("}\n"); err != nil {
+		log.Fatal(err)
+	}
+	zipsfile, err := os.OpenFile("extension-zips.go", os.O_APPEND|os.O_WRONLY, 0600)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer zipsfile.Close()
+	if _, err := zipsfile.WriteString("}\n"); err != nil {
+		log.Fatal(err)
+	}
 	//lorca.Embed("main", "assets.go", "i2pchrome.js")
 	//lorca.Embed("i2pchrome", "lib/assets.go", "i2pchrome.js")
 }
