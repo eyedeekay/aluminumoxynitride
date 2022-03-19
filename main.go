@@ -93,7 +93,9 @@ func main() {
 	if err = StartI2P(workdir); err != nil {
 		log.Fatal(err)
 	}
-	WriteOutExtensions("i2pchromium-browser")
+	if err = WriteOutExtensions("i2pchromium-browser"); err != nil {
+		log.Fatal(err)
+	}
 	CHROMIUM, ERROR = SecureExtendedChromium("i2pchromium-browser", false, extensionPaths("i2pchromium-browser"), EXTENSIONHASHES, ARGS...)
 	//CHROMIUM, ERROR = ExtendedChromium("i2pchromium-browser", false, extensionPaths("extensions"), ARGS...)
 	if ERROR != nil {
