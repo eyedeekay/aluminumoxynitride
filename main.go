@@ -94,8 +94,12 @@ func main() {
 			log.Fatal(err)
 		}
 	}
-	if err = StartI2P(workdir); err != nil {
+	if I2PDaemon, err := StartI2P(workdir); err != nil {
 		log.Fatal(err)
+	} else {
+		if I2PDaemon != nil {
+			defer I2PDaemon.Stop()
+		}
 	}
 	if err = WriteOutExtensions("i2pchromium-browser"); err != nil {
 		log.Fatal(err)
