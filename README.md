@@ -5,6 +5,16 @@ A Chrome-Wrapping configuration tool for browsing I2P. The very simplest way to
 configure Chromium-based browsers to visit I2P sites, without interfering with
 your main browser configuration.
 
+It installs extensions in the browsing profile prior to launching it. Those are:
+
+ - I2P Chrome Configuration
+ - Ublock Origin
+ - ScriptSafe(Possibly redundant)
+ - LocalCDN
+ - Onion Browser
+
+They were picked for similarity with i2p.plugins.tor-manager's extension loadout.
+
 This is **NOT FINISHED** software, but it is usable and probably pretty good at
 what it's supposed to do.
 
