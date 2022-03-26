@@ -16,7 +16,10 @@ It installs extensions in the browsing profile prior to launching it. Those are:
 They were picked for similarity with i2p.plugins.tor-manager's extension loadout.
 
 This is **NOT FINISHED** software, but it is usable and probably pretty good at
-what it's supposed to do.
+what it's supposed to do. It's the only halfway decent way of configuring I2P with
+that miserable travesty Microsoft Edge for instance.
+
+Seriously can't believe Microsoft is still trying to make a browser.
 
 It works by using the excellent [Lorca](https://github.com/zserge/lorca) library
 created the same people who made the Webview bindings for Go as a means to wrap
