@@ -53,7 +53,7 @@ linux: unbackup-embed backup-embed unembed-windows
 	GOOS=linux GOARCH=arm make docker
 	GOOS=linux GOARCH=arm64 make docker
 
-darwin:
+darwin: unembed-linux unembed-windows
 	GOOS=darwin GOARCH=amd64 make build
 	GOOS=darwin GOARCH=arm64 make build
 
@@ -61,19 +61,19 @@ windows: unbackup-embed backup-embed unembed-linux
 	GOOS=windows GOARCH=amd64 make build
 	GOOS=windows GOARCH=386 make build
 
-freebsd:
+freebsd: unembed-linux unembed-windows
 	GOOS=freebsd GOARCH=amd64 make build
 	GOOS=freebsd GOARCH=386 make build
 	GOOS=freebsd GOARCH=arm make build
 	GOOS=freebsd GOARCH=arm64 make build
 
-openbsd:
+openbsd: unembed-linux unembed-windows
 	#GOOS=openbsd GOARCH=amd64 make build
 	#GOOS=openbsd GOARCH=386 make build
 	#GOOS=openbsd GOARCH=arm make build
 	#GOOS=openbsd GOARCH=arm64 make build
 
-netbsd:
+netbsd: unembed-linux unembed-windows
 	#GOOS=netbsd GOARCH=amd64 make build
 	#GOOS=netbsd GOARCH=386 make build
 	#GOOS=netbsd GOARCH=arm make build
