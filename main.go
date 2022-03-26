@@ -77,19 +77,31 @@ var ARGS = []string{
 func main() {
 	directory := flag.String("directory", "", "The directory to store aluminumoxynitride data in")
 	flag.Parse()
-	profile := filepath.Join(*directory, "profile")
+	profile, err := filepath.Abs(filepath.Join(*directory, "profile"))
+	if err != nil {
+		log.Fatal(err)
+	}
 	os.MkdirAll(profile, 0755)
-	ARGS = append(ARGS, "--user-data-dir="+*directory+"/profile")
+	ARGS = append(ARGS, "--user-data-dir="+profile)
 	ARGS = append(ARGS, flag.Args()...)
 	var workdir string
-	var err error
-	if directory != nil && *directory == "" {
+	if directory == nil || *directory == "" {
 		workdir, err = os.Getwd()
 		if err != nil {
 			log.Fatal(err)
 		}
+		workdir, err = filepath.Abs(workdir)
+		if err != nil {
+			log.Fatal(err)
+		}
+		if err := os.Chdir(workdir); err != nil {
+			log.Fatal(err)
+		}
 	} else {
-		workdir = *directory
+		workdir, err = filepath.Abs(*directory)
+		if err != nil {
+			log.Fatal(err)
+		}
 		if err := os.Chdir(workdir); err != nil {
 			log.Fatal(err)
 		}
