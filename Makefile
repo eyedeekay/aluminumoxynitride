@@ -6,6 +6,9 @@ APP=aluminumoxynitride
 echo:
 	echo gothub release -u eyedeekay -r $(APP) -t $(VERSION) -n $(VERSION) -d $(DESC)
 
+delete-release:
+	gothub delete -u eyedeekay -r $(APP) -t $(VERSION)
+
 build:
 	go build --tags "netgo osusergo" -o $(APP)-$(GOOS)-$(GOARCH)
 
