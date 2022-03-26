@@ -74,50 +74,45 @@ var ARGS = []string{
 	"--disable-file-system",
 }
 
+var workdir, err = os.Getwd()
+
 func main() {
-	directory := flag.String("directory", "", "The directory to store aluminumoxynitride data in")
+	directory := flag.String("directory", filepath.Join(workdir, "spinel"), "The directory to store aluminumoxynitride data in")
 	flag.Parse()
-	profile, err := filepath.Abs(filepath.Join(*directory, "profile"))
+	if err != nil {
+		log.Fatal(err)
+	}
+	rundir, err := filepath.Abs(*directory)
+	if err != nil {
+		log.Fatal(err)
+	}
+	profile, err := filepath.Abs(filepath.Join(rundir, "profile"))
 	if err != nil {
 		log.Fatal(err)
 	}
 	os.MkdirAll(profile, 0755)
 	ARGS = append(ARGS, "--user-data-dir="+profile)
 	ARGS = append(ARGS, flag.Args()...)
-	var workdir string
-	if directory == nil || *directory == "" {
-		workdir, err = os.Getwd()
-		if err != nil {
-			log.Fatal(err)
-		}
-		workdir, err = filepath.Abs(workdir)
-		if err != nil {
-			log.Fatal(err)
-		}
-		if err := os.Chdir(workdir); err != nil {
-			log.Fatal(err)
-		}
-	} else {
-		workdir, err = filepath.Abs(*directory)
-		if err != nil {
-			log.Fatal(err)
-		}
-		if err := os.Chdir(workdir); err != nil {
-			log.Fatal(err)
-		}
+
+	if err != nil {
+		log.Fatal(err)
 	}
-	if I2PDaemon, err := StartI2P(workdir); err != nil {
+	if err := os.Chdir(rundir); err != nil {
+		log.Fatal(err)
+	}
+
+	if I2PDaemon, err := StartI2P(rundir); err != nil {
 		log.Fatal(err)
 	} else {
 		if I2PDaemon != nil {
 			defer I2PDaemon.Stop()
 		}
 	}
-	if err = WriteOutExtensions("i2pchromium-browser"); err != nil {
+	if err = WriteOutExtensions("spinel"); err != nil {
 		log.Fatal(err)
 	}
-	CHROMIUM, ERROR = SecureExtendedChromium("i2pchromium-browser", false, extensionPaths("i2pchromium-browser"), EXTENSIONHASHES, ARGS...)
-	//CHROMIUM, ERROR = ExtendedChromium("i2pchromium-browser", false, extensionPaths("extensions"), ARGS...)
+	CHROMIUM, ERROR = SecureExtendedChromium("spinel", false, extensionPaths("spinel"), EXTENSIONHASHES, ARGS...)
+	//CHROMIUM, ERROR = ExtendedChromium("spinel", false, extensionPaths("extensions"), ARGS...)
 	if ERROR != nil {
 		log.Fatal(ERROR)
 	}
