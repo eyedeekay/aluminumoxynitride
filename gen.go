@@ -96,7 +96,7 @@ func main() {
 	if err := DownloadAndUnpackAndMoveExtension("njdfdhgcmkocbgbhcioffdbicglldapd", "localcdn.crx", "localcdn"); err != nil {
 		log.Fatal(err)
 	}
-	if err := DownloadAndUnpackAndMoveExtension("fockhhgebmfjljjmjhbdgibcmofjbpca", "onionbrowser.crx", "onionbrowser"); err != nil {
+	if err := DownloadAndUnpackAndMoveExtension("fockhhgebmfjljjmjhbdgibcmofjbpca", "onionbrowser.crx", "onionbrowse"); err != nil {
 		log.Fatal(err)
 	}
 	if err := DownloadAndUnpackAndMoveExtension("oiigbmnaadbkfbmpbfijlflahbdbdgdf", "scriptsafe.crx", "scriptsafe"); err != nil {

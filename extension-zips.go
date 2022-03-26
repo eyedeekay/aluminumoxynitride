@@ -2,7 +2,7 @@ package main
 
 var EXTENSIONS = []string{
 	"localcdn",
-	"onionbrowser",
+	"onionbrowse",
 	"scriptsafe",
 	"ublockorigin",
 	"i2pchrome.js",
