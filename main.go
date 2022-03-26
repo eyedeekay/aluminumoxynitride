@@ -108,10 +108,10 @@ func main() {
 			defer I2PDaemon.Stop()
 		}
 	}
-	if err = WriteOutExtensions("spinel"); err != nil {
+	if err = WriteOutExtensions(profile); err != nil {
 		log.Fatal(err)
 	}
-	CHROMIUM, ERROR = SecureExtendedChromium("spinel", false, extensionPaths("spinel"), EXTENSIONHASHES, ARGS...)
+	CHROMIUM, ERROR = SecureExtendedChromium("spinel", false, extensionPaths(profile), EXTENSIONHASHES, ARGS...)
 	//CHROMIUM, ERROR = ExtendedChromium("spinel", false, extensionPaths("extensions"), ARGS...)
 	if ERROR != nil {
 		log.Fatal(ERROR)
