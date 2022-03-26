@@ -37,7 +37,7 @@ backup-embed:
 	cp ../../../github.com/eyedeekay/go-I2P-jpackage/*.tar.xz ../../../github.com/eyedeekay/
 
 unbackup-embed:
-	cp ../../../github.com/eyedeekay/*.tar.xz ../../../github.com/eyedeekay/go-I2P-jpackage/; true
+	cp ../../../github.com/eyedeekay/build.*.I2P.tar.xz ../../../github.com/eyedeekay/go-I2P-jpackage/; true
 
 unembed-windows:
 	mv ../../../github.com/eyedeekay/go-I2P-jpackage/build.windows.I2P.tar.xz ../../../github.com/eyedeekay/
@@ -106,4 +106,4 @@ upload:
 
 clean:
 	git clean -fd
-	rm -rf basic extensions i2pchrome.js i2pchromium-browser localcdn onionbrowse scriptsafe ublockorigin aluminumoxynitride*
+	rm -rf basic extensions i2pchrome.js i2pchromium-browser localcdn onionbrowse scriptsafe ublockorigin aluminumoxynitride* spinel
