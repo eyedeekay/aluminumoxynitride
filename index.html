@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <title>
+      aluminumoxynitri...
+    </title>
+    <meta name="author" content="eyedeekay" />
+    <meta name="description" content="aluminumoxynitride.git" />
+    <meta name="keywords" content="main" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src=""></script>
+  </head>
+  <body>
+    <div id="navbar">
+      <a href="#shownav">
+        Show navigation
+      </a>
+      <div id="shownav">
+        <div id="hidenav">
+          <ul>
+            <li>
+              <a href="index.html">
+                index
+              </a>
+            </li>
+          </ul>
+          <br>
+          <a href="#hidenav">
+            Hide Navigation
+          </a>
+        </div>
+      </div>
+    </div>
+    <h1>
+      aluminumoxynitride
+    </h1>
+    <p>
+      A Chrome-Wrapping configuration tool for browsing I2P. The very simplest way to
+      configure Chromium-based browsers to visit I2P sites, without interfering with
+      your main browser configuration.
+    </p>
+    <p>
+      It installs extensions in the browsing profile prior to launching it. Those are:
+    </p>
+    <ul>
+      <li>
+        I2P Chrome Configuration
+      </li>
+      <li>
+        Ublock Origin
+      </li>
+      <li>
+        ScriptSafe(Possibly redundant)
+      </li>
+      <li>
+        LocalCDN
+      </li>
+      <li>
+        Onion Browser
+      </li>
+    </ul>
+    <p>
+      They were picked for similarity with i2p.plugins.tor-manager’s extension loadout.
+    </p>
+    <p>
+      This is
+      <strong>
+        NOT FINISHED
+      </strong>
+      software, but it is usable and probably pretty good at
+      what it’s supposed to do. It’s the only halfway decent way of configuring I2P with
+      that miserable travesty Microsoft Edge for instance.
+    </p>
+    <p>
+      Seriously can’t believe Microsoft is still trying to make a browser.
+    </p>
+    <p>
+      It works by using the excellent
+      <a href="https://github.com/zserge/lorca" rel="nofollow">
+        Lorca
+      </a>
+      library
+      created the same people who made the Webview bindings for Go as a means to wrap
+      several variants of the Chrome browser in order to configure them to work with
+      I2P. It does this using a different working area to your “main” Chrome browser,
+      which prevents it from interfering with other ways you browse.
+    </p>
+    <p>
+      It is not actually a Chromium fork. It’s just a wrapper around Chromium, in the
+      same way that
+      <code>
+        i2p.firefox
+      </code>
+      is a wrapper around Firefox.
+    </p>
+    <p>
+      Works pretty much anyplace you can shoehorn a Chromium somewhere on the
+      <code>
+        $PATH
+      </code>
+      .
+    </p>
+    <div>
+      <a href="#show">
+        Show license
+      </a>
+      <div id="show">
+        <div id="hide">
+          <pre><code>MIT License
+
+Copyright (c) 2022 idk
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</code></pre>
+          <a href="#hide">
+            Hide license
+          </a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <iframe src="https://snowflake.torproject.org/embed.html" width="320" height="240" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </body>
+</html>
